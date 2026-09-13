@@ -28,3 +28,5 @@ El programa debe permitir administrar las Marcas y Categorías disponibles en el
 **Etapa 1:** Construir las clases necesarias para el modelo de dicha aplicación junto a las ventanas con las que contará y su navegación.
 
 **Etapa 2:** Construir la interacción con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
+# Estado:
+**[Tablero de Trello](https://trello.com/invite/b/6aa6faad328c137666abfd78/ATTI862ad2bd8bc9c9e74e9becdf6603edd4C5C96728/📚-tp-winform-catalogo-de-articulos)**
