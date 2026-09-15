@@ -25,7 +25,17 @@ namespace Winform_App
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
-                while (lector.Read());
+                while (lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = lector.GetInt32(0);
+                    aux.Codigo = (string)lector["Codigo"];
+                    aux.Nombre = (string)lector["Nombre"];
+                    aux.Descripcion = (string)lector["Descripcion"];
+                    aux.Precio = lector.GetDecimal(4);
+                    lista.Add(aux);
+                }
+                    
         }
             catch (Exception ex)
             {
