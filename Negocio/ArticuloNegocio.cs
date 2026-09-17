@@ -23,8 +23,12 @@ namespace Negocio
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select Id, Codigo, Nombre, Descripcion, Precio From ARTICULOS";
                 comando.Connection = conexion;
+                
                 conexion.Open();
                 lector = comando.ExecuteReader();
+
+                ImagenNegocio imagenNegocio = new ImagenNegocio();
+
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
@@ -33,6 +37,9 @@ namespace Negocio
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.Precio = lector.GetDecimal(4);
+
+                    aux.Imagenes = imagenNegocio.listarPorArticulo(aux.Id);
+
                     lista.Add(aux);
                 }
 
