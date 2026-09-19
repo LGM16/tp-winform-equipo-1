@@ -30,133 +30,149 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(24, 24);
+            this.lblCodigo.Location = new System.Drawing.Point(18, 20);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(54, 16);
+            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(24, 64);
+            this.lblNombre.Location = new System.Drawing.Point(18, 52);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(59, 16);
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre:";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(24, 104);
+            this.lblDescripcion.Location = new System.Drawing.Point(18, 84);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(82, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 2;
             this.lblDescripcion.Text = "Descripción:";
             // 
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(24, 144);
+            this.lblMarca.Location = new System.Drawing.Point(18, 117);
+            this.lblMarca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(48, 16);
+            this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 3;
             this.lblMarca.Text = "Marca:";
             // 
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(24, 184);
+            this.lblCategoria.Location = new System.Drawing.Point(18, 150);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(69, 16);
+            this.lblCategoria.Size = new System.Drawing.Size(57, 13);
             this.lblCategoria.TabIndex = 4;
             this.lblCategoria.Text = "Categoría:";
             // 
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(24, 224);
+            this.lblPrecio.Location = new System.Drawing.Point(18, 182);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(49, 16);
+            this.lblPrecio.Size = new System.Drawing.Size(40, 13);
             this.lblPrecio.TabIndex = 5;
             this.lblPrecio.Text = "Precio:";
             // 
             // lblImagenUrl
             // 
             this.lblImagenUrl.AutoSize = true;
-            this.lblImagenUrl.Location = new System.Drawing.Point(24, 264);
+            this.lblImagenUrl.Location = new System.Drawing.Point(18, 214);
+            this.lblImagenUrl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblImagenUrl.Name = "lblImagenUrl";
-            this.lblImagenUrl.Size = new System.Drawing.Size(81, 16);
+            this.lblImagenUrl.Size = new System.Drawing.Size(70, 13);
             this.lblImagenUrl.TabIndex = 6;
             this.lblImagenUrl.Text = "URL Imagen:";
             // 
             // lblImagenesCargadas
             // 
             this.lblImagenesCargadas.AutoSize = true;
-            this.lblImagenesCargadas.Location = new System.Drawing.Point(24, 304);
+            this.lblImagenesCargadas.Location = new System.Drawing.Point(18, 247);
+            this.lblImagenesCargadas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblImagenesCargadas.Name = "lblImagenesCargadas";
-            this.lblImagenesCargadas.Size = new System.Drawing.Size(129, 16);
+            this.lblImagenesCargadas.Size = new System.Drawing.Size(103, 13);
             this.lblImagenesCargadas.TabIndex = 7;
             this.lblImagenesCargadas.Text = "Imágenes cargadas:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(160, 21);
+            this.txtCodigo.Location = new System.Drawing.Point(120, 17);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(260, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(196, 20);
             this.txtCodigo.TabIndex = 8;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(160, 61);
+            this.txtNombre.Location = new System.Drawing.Point(120, 50);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(260, 22);
+            this.txtNombre.Size = new System.Drawing.Size(196, 20);
             this.txtNombre.TabIndex = 9;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(160, 101);
+            this.txtDescripcion.Location = new System.Drawing.Point(120, 82);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(260, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(196, 20);
             this.txtDescripcion.TabIndex = 10;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(120, 180);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(196, 20);
+            this.txtPrecio.TabIndex = 13;
+            // 
+            // txtImagenUrl
+            // 
+            this.txtImagenUrl.Location = new System.Drawing.Point(120, 212);
+            this.txtImagenUrl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImagenUrl.Name = "txtImagenUrl";
+            this.txtImagenUrl.Size = new System.Drawing.Size(196, 20);
+            this.txtImagenUrl.TabIndex = 14;
             // 
             // cboMarca
             // 
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(160, 141);
+            this.cboMarca.Location = new System.Drawing.Point(120, 115);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(260, 24);
+            this.cboMarca.Size = new System.Drawing.Size(196, 21);
             this.cboMarca.TabIndex = 11;
             // 
             // cboCategoria
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(160, 181);
+            this.cboCategoria.Location = new System.Drawing.Point(120, 147);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(260, 24);
+            this.cboCategoria.Size = new System.Drawing.Size(196, 21);
             this.cboCategoria.TabIndex = 12;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(160, 221);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(260, 22);
-            this.txtPrecio.TabIndex = 13;
-            // 
-            // txtImagenUrl
-            // 
-            this.txtImagenUrl.Location = new System.Drawing.Point(160, 261);
-            this.txtImagenUrl.Name = "txtImagenUrl";
-            this.txtImagenUrl.Size = new System.Drawing.Size(260, 22);
-            this.txtImagenUrl.TabIndex = 14;
             // 
             // btnAgregarImagen
             // 
-            this.btnAgregarImagen.Location = new System.Drawing.Point(426, 260);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(320, 211);
+            this.btnAgregarImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(35, 24);
+            this.btnAgregarImagen.Size = new System.Drawing.Size(26, 20);
             this.btnAgregarImagen.TabIndex = 15;
             this.btnAgregarImagen.Text = "+";
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
@@ -165,28 +181,30 @@
             // lstImagenes
             // 
             this.lstImagenes.FormattingEnabled = true;
-            this.lstImagenes.ItemHeight = 16;
-            this.lstImagenes.Location = new System.Drawing.Point(160, 304);
+            this.lstImagenes.Location = new System.Drawing.Point(120, 247);
+            this.lstImagenes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstImagenes.Name = "lstImagenes";
-            this.lstImagenes.Size = new System.Drawing.Size(301, 116);
+            this.lstImagenes.Size = new System.Drawing.Size(227, 95);
             this.lstImagenes.TabIndex = 16;
             this.lstImagenes.SelectedIndexChanged += new System.EventHandler(this.lstImagenes_SelectedIndexChanged);
             // 
             // pbxImagen
             // 
             this.pbxImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxImagen.Location = new System.Drawing.Point(500, 21);
+            this.pbxImagen.Location = new System.Drawing.Point(375, 17);
+            this.pbxImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(300, 300);
+            this.pbxImagen.Size = new System.Drawing.Size(226, 244);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen.TabIndex = 17;
             this.pbxImagen.TabStop = false;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(500, 340);
+            this.btnAceptar.Location = new System.Drawing.Point(375, 276);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(140, 36);
+            this.btnAceptar.Size = new System.Drawing.Size(105, 29);
             this.btnAceptar.TabIndex = 18;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -194,9 +212,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(660, 340);
+            this.btnCancelar.Location = new System.Drawing.Point(495, 276);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(140, 36);
+            this.btnCancelar.Size = new System.Drawing.Size(105, 29);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -204,9 +223,9 @@
             // 
             // frmAltaArticulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 445);
+            this.ClientSize = new System.Drawing.Size(622, 362);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pbxImagen);
@@ -227,7 +246,9 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAltaArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta de Artículo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
