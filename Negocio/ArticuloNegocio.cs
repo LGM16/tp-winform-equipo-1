@@ -21,22 +21,36 @@ namespace Negocio
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, Codigo, Nombre, Descripcion, Precio From ARTICULOS";
+                comando.CommandText = "Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio From ARTICULOS";
                 comando.Connection = conexion;
                 
                 conexion.Open();
                 lector = comando.ExecuteReader();
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
+                List<Marca> marcas = marcaNegocio.listar();
+                List<Categoria> categorias = categoriaNegocio.listar();
 
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
+
                     aux.Id = lector.GetInt32(0);
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
-                    aux.Precio = lector.GetDecimal(4);
+
+                    //Todo esto por no hacer JOIN en ArticuloNegocio
+                    int idMarca = lector.GetInt32(4);
+                    int idCategoria = lector.GetInt32(5);
+
+                    aux.Marca = marcas.Find(marca => marca.Id == idMarca);
+                    aux.Categoria = categorias.Find(categoria => categoria.Id == idCategoria);
+                    
+                    aux.Precio = lector.GetDecimal(6);
 
                     aux.Imagenes = imagenNegocio.listarPorArticulo(aux.Id);
 
