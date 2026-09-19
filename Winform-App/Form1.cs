@@ -23,7 +23,25 @@ namespace Winform_App
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulo.DataSource = negocio.listar();
+            listaArticulos = negocio.listar();
+            dgvArticulo.DataSource = listaArticulos;
+        }
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.Imagenes[0].Url);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
         }
 
         private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,5 +108,6 @@ namespace Winform_App
         {
 
         }
+
     }
 }
