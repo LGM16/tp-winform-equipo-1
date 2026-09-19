@@ -71,7 +71,8 @@ namespace Winform_App
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
