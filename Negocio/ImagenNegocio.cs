@@ -36,6 +36,9 @@ namespace Negocio
 
                     listaImagenes.Add(cargar);
                 }
+
+                conexion.Close();
+                return listaImagenes;
             }
             catch (Exception excepcion)
             {
@@ -43,7 +46,6 @@ namespace Negocio
                 throw excepcion;
             }
 
-                return listaImagenes;
         }
     }
 }

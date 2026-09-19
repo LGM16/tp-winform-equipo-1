@@ -13,36 +13,54 @@ namespace Negocio
         public List<Marca> listar()
         {
             List<Marca> listaMarcas = new List<Marca>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
+
+            //SqlConnection conexion = new SqlConnection();
+            //SqlCommand comando = new SqlCommand();
+            //SqlDataReader lector;
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, Descripcion From MARCAS";
-                comando.Connection = conexion;
+                datos.setearConsulta("Select Id, Descripcion From MARCAS");
+                datos.ejecutarLectura();
+                //conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
+                //comando.CommandType = System.Data.CommandType.Text;
+                //comando.CommandText = "Select Id, Descripcion From MARCAS";
+                //comando.Connection = conexion;
 
-                conexion.Open();
-                lector = comando.ExecuteReader();
+                //conexion.Open();
+                //lector = comando.ExecuteReader();
 
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
                     Marca cargar = new Marca();
-                    cargar.Id = lector.GetInt32(0);
-                    cargar.Descripcion = (string)lector["Descripcion"];
+                    cargar.Id = (int)datos.Lector["Id"];
+                    cargar.Descripcion = (string)datos.Lector["Descripcion"];
 
                     listaMarcas.Add(cargar);
                 }
+
+                //while (lector.Read())
+                //{
+                //    Marca cargar = new Marca();
+                //    cargar.Id = lector.GetInt32(0);
+                //    cargar.Descripcion = (string)lector["Descripcion"];
+
+                //    listaMarcas.Add(cargar);
+                //}
+                
+                return listaMarcas;
             }
             catch (Exception excepcion)
             {
 
                 throw excepcion;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
-            return listaMarcas;
         }
     }
 }

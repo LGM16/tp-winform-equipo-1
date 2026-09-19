@@ -36,6 +36,9 @@ namespace Negocio
 
                     listaCategorias.Add(cargar);
                 }
+
+                conexion.Close();
+                return listaCategorias;
             }
             catch (Exception excepcion)
             {
@@ -43,7 +46,6 @@ namespace Negocio
                 throw excepcion;
             }
 
-            return listaCategorias;
         }
     }
 }

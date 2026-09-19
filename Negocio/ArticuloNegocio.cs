@@ -57,12 +57,23 @@ namespace Negocio
                     lista.Add(aux);
                 }
 
+                conexion.Close();
+                return lista;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lista;
+        }
+
+        public void agregar (Articulo nuevo)
+        {
+
+        }
+
+        public void modificar (Articulo modificar)
+        {
+
         }
     }
 }
