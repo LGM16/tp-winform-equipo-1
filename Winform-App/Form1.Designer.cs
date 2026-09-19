@@ -31,14 +31,14 @@
             this.dgvArticulo.Location = new System.Drawing.Point(12, 49);
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.RowHeadersWidth = 51;
-            this.dgvArticulo.Size = new System.Drawing.Size(566, 228);
+            this.dgvArticulo.Size = new System.Drawing.Size(755, 228);
             this.dgvArticulo.TabIndex = 0;
             this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(584, 49);
+            this.pbxArticulo.Location = new System.Drawing.Point(773, 49);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(204, 228);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +153,7 @@
             // 
             // btnMarcas
             // 
-            this.btnMarcas.Location = new System.Drawing.Point(584, 288);
+            this.btnMarcas.Location = new System.Drawing.Point(622, 288);
             this.btnMarcas.Margin = new System.Windows.Forms.Padding(2);
             this.btnMarcas.Name = "btnMarcas";
             this.btnMarcas.Size = new System.Drawing.Size(98, 26);
@@ -164,7 +164,7 @@
             // 
             // btnCategorias
             // 
-            this.btnCategorias.Location = new System.Drawing.Point(691, 288);
+            this.btnCategorias.Location = new System.Drawing.Point(728, 288);
             this.btnCategorias.Margin = new System.Windows.Forms.Padding(2);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(98, 26);
@@ -197,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 333);
+            this.ClientSize = new System.Drawing.Size(987, 333);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnDetalle);
