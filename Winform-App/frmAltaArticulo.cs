@@ -84,7 +84,23 @@ namespace Winform_App
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            Articulo art = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
             //  validaciones + guardar
+            try
+            {
+                art.Codigo = txtCodigo.Text;
+                art.Nombre = txtNombre.Text;
+                art.Descripcion = txtDescripcion.Text;
+
+                negocio.agregar(art);
+                MessageBox.Show("Agregado de manera exitosa");
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString()) ;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
