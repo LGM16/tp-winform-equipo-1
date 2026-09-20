@@ -13,37 +13,34 @@ namespace Negocio
         public List<Imagen> listarPorArticulo(int idArticulo)
         {
             List<Imagen> listaImagenes = new List<Imagen>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, IdArticulo, ImagenUrl From IMAGENES Where IdArticulo = " + idArticulo;
-                comando.Connection = conexion;
-                
-                conexion.Open();
-                lector = comando.ExecuteReader();
+                datos.setearConsulta("Select Id, IdArticulo, ImagenUrl From IMAGENES Where IdArticulo = @IdArticulo");
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.ejecutarLectura();
 
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
                     Imagen cargar = new Imagen();
-                    cargar.Id = lector.GetInt32(0);
-                    cargar.IdArticulo = lector.GetInt32(1);
-                    cargar.Url = (string)lector["ImagenUrl"];
+                    cargar.Id = datos.Lector.GetInt32(0);
+                    cargar.IdArticulo = datos.Lector.GetInt32(1);
+                    cargar.Url = (string)datos.Lector["ImagenUrl"];
 
                     listaImagenes.Add(cargar);
                 }
 
-                conexion.Close();
                 return listaImagenes;
             }
             catch (Exception excepcion)
             {
 
                 throw excepcion;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
 
         }

@@ -26,11 +26,13 @@ namespace Winform_App
         {
             try
             {
+                cboMarca.DataSource = new MarcaNegocio().listar();
                 cboMarca.ValueMember = "Id";
-                cboMarca.DisplayMember = "Nombre";
+                cboMarca.DisplayMember = "Descripcion";
 
+                cboCategoria.DataSource = new CategoriaNegocio().listar();
                 cboCategoria.ValueMember = "Id";
-                cboCategoria.DisplayMember = "Nombre";
+                cboCategoria.DisplayMember = "Descripcion";
 
                 if (articulo != null)
                 {
@@ -92,6 +94,9 @@ namespace Winform_App
                 art.Codigo = txtCodigo.Text;
                 art.Nombre = txtNombre.Text;
                 art.Descripcion = txtDescripcion.Text;
+                art.Marca = (Dominio.Marca)cboMarca.SelectedItem;
+                art.Categoria = (Dominio.Categoria)cboCategoria.SelectedItem;
+                art.Precio = decimal.Parse(txtPrecio.Text);
 
                 negocio.agregar(art);
                 MessageBox.Show("Agregado de manera exitosa");

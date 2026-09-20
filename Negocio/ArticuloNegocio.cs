@@ -13,19 +13,12 @@ namespace Negocio
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio From ARTICULOS";
-                comando.Connection = conexion;
-                
-                conexion.Open();
-                lector = comando.ExecuteReader();
+                datos.setearConsulta("Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio From ARTICULOS");
+                datos.ejecutarLectura();
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
                 MarcaNegocio marcaNegocio = new MarcaNegocio();
@@ -34,35 +27,38 @@ namespace Negocio
                 List<Marca> marcas = marcaNegocio.listar();
                 List<Categoria> categorias = categoriaNegocio.listar();
 
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
 
-                    aux.Id = lector.GetInt32(0);
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
 
                     //Todo esto por no hacer JOIN en ArticuloNegocio
-                    int idMarca = lector.GetInt32(4);
-                    int idCategoria = lector.GetInt32(5);
+                    int idMarca = datos.Lector.GetInt32(4);
+                    int idCategoria = datos.Lector.GetInt32(5);
 
                     aux.Marca = marcas.Find(marca => marca.Id == idMarca);
                     aux.Categoria = categorias.Find(categoria => categoria.Id == idCategoria);
-                    
-                    aux.Precio = lector.GetDecimal(6);
+
+                    aux.Precio = datos.Lector.GetDecimal(6);
 
                     aux.Imagenes = imagenNegocio.listarPorArticulo(aux.Id);
 
                     lista.Add(aux);
                 }
 
-                conexion.Close();
                 return lista;
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
@@ -72,7 +68,14 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
+                                      "VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                datos.setearParametro("@Codigo", nuevo.Codigo);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
+                datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@Precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

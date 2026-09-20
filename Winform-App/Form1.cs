@@ -29,7 +29,10 @@ namespace Winform_App
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.Imagenes[0].Url);
+            if (seleccionado.Imagenes.Count > 0)
+                cargarImagen(seleccionado.Imagenes[0].Url);
+            else
+                pbxArticulo.Image = null;
         }
 
         private void cargarImagen(string imagen)
