@@ -13,7 +13,8 @@ namespace Winform_App
         public frmAltaArticulo()
         {
             InitializeComponent();
-        }
+            articulo = new Articulo();
+        }   
 
         public frmAltaArticulo(Articulo articulo)
         {
@@ -34,7 +35,7 @@ namespace Winform_App
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
 
-                if (articulo != null)
+                if (articulo.Id != 0)
                 {
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
@@ -105,6 +106,10 @@ namespace Winform_App
                 }
                 else
                 {
+                    foreach (object item in lstImagenes.Items)
+                        articulo.Imagenes.Add(new Imagen { Url = item.ToString() });
+
+                    
                     negocio.agregar(articulo);
                     MessageBox.Show("Agregado de manera exitosa", "Atención");
                 }

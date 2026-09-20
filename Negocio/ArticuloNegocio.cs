@@ -62,21 +62,34 @@ namespace Negocio
             }
         }
 
-        public void agregar (Articulo nuevo)
+        public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
                 datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
-                                      "VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                                      "VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio); " +
+                                      "SELECT SCOPE_IDENTITY()");
                 datos.setearParametro("@Codigo", nuevo.Codigo);
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
                 datos.setearParametro("@IdMarca", nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@Precio", nuevo.Precio);
-                datos.ejecutarAccion();
+
+                object idGenerado = datos.ejecutarAccionEscalar();
+                nuevo.Id = Convert.ToInt32(idGenerado);
+
+                if (nuevo.Imagenes != null && nuevo.Imagenes.Count > 0)
+                {
+                    ImagenNegocio imagenNegocio = new ImagenNegocio();
+                    foreach (Imagen img in nuevo.Imagenes)
+                    {
+                        img.IdArticulo = nuevo.Id;
+                        imagenNegocio.agregar(img);
+                    }
+                }
             }
             catch (Exception ex)
             {
