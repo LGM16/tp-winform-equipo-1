@@ -26,7 +26,12 @@ namespace Negocio
                     Imagen cargar = new Imagen();
                     cargar.Id = datos.Lector.GetInt32(0);
                     cargar.IdArticulo = datos.Lector.GetInt32(1);
-                    cargar.Url = (string)datos.Lector["ImagenUrl"];
+
+                    //if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("ImagenUrl"))))
+                    //    cargar.Url = (string)datos.Lector["ImagenUrl"];
+
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        cargar.Url = (string)datos.Lector["ImagenUrl"];
 
                     listaImagenes.Add(cargar);
                 }
