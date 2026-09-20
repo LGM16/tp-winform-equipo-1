@@ -23,6 +23,22 @@ namespace Winform_App
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             cargar();
+            cargarCombosFiltro();
+        }
+
+        private void cargarCombosFiltro()
+        {
+            List<Marca> marcas = new MarcaNegocio().listar();
+            marcas.Insert(0, new Marca { Id = 0, Descripcion = "(Todas)" });
+            cboMarca.DataSource = marcas;
+            cboMarca.ValueMember = "Id";
+            cboMarca.DisplayMember = "Descripcion";
+
+            List<Categoria> categorias = new CategoriaNegocio().listar();
+            categorias.Insert(0, new Categoria { Id = 0, Descripcion = "(Todas)" });
+            cboCategoria.DataSource = categorias;
+            cboCategoria.ValueMember = "Id";
+            cboCategoria.DisplayMember = "Descripcion";
         }
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
@@ -129,12 +145,45 @@ namespace Winform_App
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            var codigo = txtCodigo.Text.ToLower();
+            var nombre = txtNombre.Text.ToLower();
 
+            var marcaId = (int)cboMarca.SelectedValue;
+            var categoriaId = (int)cboCategoria.SelectedValue;
+
+            var filtrado = listaArticulos.Where(a =>
+                (string.IsNullOrEmpty(codigo) || a.Codigo.ToLower().Contains(codigo)) &&
+                (string.IsNullOrEmpty(nombre) || a.Nombre.ToLower().Contains(nombre)) &&
+                (marcaId == 0 || a.Marca.Id == marcaId) &&
+                (categoriaId == 0 || a.Categoria.Id == categoriaId)
+            ).ToList();
+
+            dgvArticulo.DataSource = filtrado;
+     
+            if (filtrado.Count == 0)
+            {
+                MessageBox.Show("No se encontraron resultados para la búsqueda.", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgvArticulo.ClearSelection();
+                dgvArticulo.Rows[0].Selected = true;
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                if (seleccionado.Imagenes.Count > 0)
+                    cargarImagen(seleccionado.Imagenes[0].Url);
+                else
+                    pbxArticulo.Image = null;
+            }
+            
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            cboMarca.SelectedIndex = 0;
+            cboCategoria.SelectedIndex = 0;
+            dgvArticulo.DataSource = listaArticulos;
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)
