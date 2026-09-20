@@ -140,7 +140,14 @@ namespace Winform_App
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-
+            if (dgvArticulo.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccioná un artículo para ver el detalle.");
+                return;
+            }
+            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            frmDetalleArticulo detalle = new frmDetalleArticulo(seleccionado);
+            detalle.ShowDialog();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -188,12 +195,18 @@ namespace Winform_App
 
         private void btnMarcas_Click(object sender, EventArgs e)
         {
-
+            frmMarcas marcas = new frmMarcas();
+            marcas.ShowDialog();
+            cargarCombosFiltro();
+            cargar();
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-
+            frmCategorias categorias = new frmCategorias();
+            categorias.ShowDialog();
+            cargarCombosFiltro();
+            cargar();
         }
 
     }
